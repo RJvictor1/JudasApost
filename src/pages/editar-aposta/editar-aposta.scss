@@ -1,0 +1,79 @@
+page-editar-aposta {
+    .bg-image{
+        background-image: url('../assets/imgs/fundojudas.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+    }
+    .bordel{
+		border-style: solid;
+		border-width: 1px ;
+		border-color: #fff;
+	  border-radius: 10px;
+	  box-shadow:
+	  0px 0px 6px rgb(94, 250, 80);
+	animation-name: example;
+  	animation-duration: 5s;
+  	animation-iteration-count: infinite;
+	}
+	@keyframes example {
+        from {box-shadow:
+			0px 0px 6px rgb(94, 250, 80);
+         }
+        to {box-shadow:
+		  0px 0px 0px rgba(255, 0, 0, 0);
+         }
+    
+            }
+            
+            ion-input {
+                margin-bottom: 20px;
+                background: #111424;
+                border: medium none;
+        
+                 .text-input {
+                    color: #fff;
+                }
+        
+                input::-moz-placeholder  {
+                    color: #fff!important;
+                }
+        
+                input:-moz-placeholder {
+                    color: #fff!important;
+                }
+        
+                *::-webkit-input-placeholder  {
+                    color: #fff!important;
+                }
+        
+                *:-ms-input-placeholder  {
+                    color: #fff!important;
+                }
+        
+                *:-moz-placeholder  {
+                    color: #fff!important;
+                } 
+                
+                box-shadow:
+                0px 0px 5px rgb(255, 113, 220);
+              
+        
+            }
+            .teste{
+                box-shadow:
+            0px 0px 0px rgb(255, 113, 220);
+            }
+
+            .button{
+                box-shadow:
+                0px 0px 10px rgb(94, 250, 80);
+            }
+
+            ion-avatar{
+                box-shadow:
+                      0px 0px 9px rgb(0, 255, 136);
+                border-radius: 20px;
+              }
+
+}

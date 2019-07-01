@@ -1,0 +1,209 @@
+<!--
+  Generated template for the RespostaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="judas">
+    <ion-title>Resposta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content  text-center class="bg-image" padding>
+
+  <ion-card margin-bottom class="cardluz card-background-page"  *ngFor="let item of information; let i = index"  >
+      <ion-card-content  no-padding (click)="toggleSection(i)">
+
+        <ion-card *ngIf="item.cardT == 'banner' || item.cardT == 'Sbanner' || item.cardT == '2banner' " no-margin [ngClass]="{'section-active': item.open, 'section': !item.open}">
+          <img src="{{item.imagem3}}"/>
+          <div *ngIf="item.cardT == 'banner'" class="card-title">{{item.descricaoAposta}}</div>
+          <div *ngIf="item.cardT == 'banner'" class="card-subtitle">Data de termino: {{item.dataTermino}}</div>
+        </ion-card>
+
+        <ion-item *ngIf="item.cardT != 'banner'" text-center [ngClass]="{'section-active': item.open, 'section': !item.open}" >
+          <ion-avatar item-start>
+              <img src="{{item.imagem1}}">
+          </ion-avatar>
+          <ion-avatar *ngIf="item.cardT == '2imagem' || item.cardT == '2banner'" item-end>
+            <img src="{{item.imagem2}}">
+        </ion-avatar>
+          <h2 text-wrap>{{item.descricaoAposta}}</h2>
+          <p style="font-size: 10px;">Data de termino: {{item.dataTermino}}</p>
+          <div *ngIf="item.cardT == 'simples' || item.cardT == 'Sbanner'" item-end><ion-icon name="eye" ></ion-icon>
+            <p style="font-size: 9px;">999999</p>
+          </div>
+        </ion-item>
+      </ion-card-content>
+      
+       <ion-card-content  style="background: #111424;" *ngIf="item.open && item.open">
+          <form [formGroup]="resposta" (ngSubmit)="aplicar(i)" >
+            <ion-list formControlName="respostaCorreta1" radio-group >
+                <ion-row>
+                  <ion-col  *ngIf="item.cardR == 'valor'" padding-top col-2 style="color:#32db64;" >
+                    <ion-icon style="font-size: 30px;" name="trophy"></ion-icon> 
+                    <p style="color:#32db64;">{{item.v1}}</p>
+                  </ion-col>
+                <ion-col col-10 *ngIf="item.cardR == 'valor'">
+                  <ion-item class="bordel" color="judas" >
+                  <ion-label text-wrap >{{item.resposta1}}</ion-label>
+                  <ion-radio color="light" value="resposta1"></ion-radio>
+                    </ion-item>
+                </ion-col>
+                <ion-col *ngIf="item.cardR == 'simples'" >
+                    <ion-item class="bordel" color="judas" >
+                    <ion-label text-wrap >{{item.resposta1}}</ion-label>
+                    <ion-radio color="light" value="resposta1"></ion-radio>
+                      </ion-item>
+                  </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col  *ngIf="item.cardR == 'valor'" padding-top col-2 style="color:#32db64;" >
+                  <ion-icon style="font-size: 30px;" name="trophy"></ion-icon> 
+                  <p style="color:#32db64;">{{item.v2}}</p>
+                </ion-col>
+              <ion-col col-10 *ngIf="item.cardR == 'valor'">
+                <ion-item class="bordel" color="judas" >
+                <ion-label text-wrap >{{item.resposta2}}</ion-label>
+                <ion-radio color="light" value="resposta2"></ion-radio>
+                  </ion-item>
+              </ion-col>
+              <ion-col *ngIf="item.cardR == 'simples'" >
+                  <ion-item class="bordel" color="judas" >
+                  <ion-label text-wrap >{{item.resposta2}}</ion-label>
+                  <ion-radio color="light" value="resposta2"></ion-radio>
+                    </ion-item>
+                </ion-col>
+          </ion-row>
+
+          <ion-row *ngIf="item.resposta3 != null">
+              <ion-col  *ngIf="item.cardR == 'valor'" padding-top col-2 style="color:#32db64;" >
+                <ion-icon style="font-size: 30px;" name="trophy"></ion-icon> 
+                <p style="color:#32db64;">{{item.v3}}</p>
+              </ion-col>
+            <ion-col col-10 *ngIf="item.cardR == 'valor'">
+              <ion-item class="bordel" color="judas" >
+              <ion-label text-wrap >{{item.resposta3}}</ion-label>
+              <ion-radio color="light" value="resposta3"></ion-radio>
+                </ion-item>
+            </ion-col>
+            <ion-col *ngIf="item.cardR == 'simples'" >
+                <ion-item class="bordel" color="judas" >
+                <ion-label text-wrap >{{item.resposta3}}</ion-label>
+                <ion-radio color="light" value="resposta3"></ion-radio>
+                  </ion-item>
+              </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="item.resposta4 != null">
+            <ion-col  *ngIf="item.cardR == 'valor'" padding-top col-2 style="color:#32db64;" >
+              <ion-icon style="font-size: 30px;" name="trophy"></ion-icon> 
+              <p style="color:#32db64;">{{item.v4}}</p>
+            </ion-col>
+          <ion-col col-10 *ngIf="item.cardR == 'valor'">
+            <ion-item class="bordel" color="judas" >
+            <ion-label text-wrap >{{item.resposta4}}</ion-label>
+            <ion-radio color="light" value="resposta4"></ion-radio>
+              </ion-item>
+          </ion-col>
+          <ion-col *ngIf="item.cardR == 'simples'" >
+              <ion-item class="bordel" color="judas" >
+              <ion-label text-wrap >{{item.resposta4}}</ion-label>
+              <ion-radio color="light" value="resposta4"></ion-radio>
+                </ion-item>
+            </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="item.resposta5 != null">
+          <ion-col  *ngIf="item.cardR == 'valor'" padding-top col-2 style="color:#32db64;" >
+            <ion-icon style="font-size: 30px;" name="trophy"></ion-icon> 
+            <p style="color:#32db64;">{{item.v5}}</p>
+          </ion-col>
+        <ion-col col-10 *ngIf="item.cardR == 'valor'">
+          <ion-item class="bordel" color="judas" >
+          <ion-label text-wrap >{{item.resposta5}}</ion-label>
+          <ion-radio color="light" value="resposta5"></ion-radio>
+            </ion-item>
+        </ion-col>
+        <ion-col *ngIf="item.cardR == 'simples'" >
+            <ion-item class="bordel" color="judas" >
+            <ion-label text-wrap >{{item.resposta5}}</ion-label>
+            <ion-radio color="light" value="resposta5"></ion-radio>
+              </ion-item>
+          </ion-col>
+    </ion-row>
+            </ion-list>
+            <!--  3 escolhas -->
+            <ion-list *ngIf="item.cardR == 'checkbox'">
+                <ion-item class="bordel" color="judas">
+                    <ion-label>{{item.resposta1}}</ion-label>
+                    <ion-checkbox [disabled]=" x1 == '3' && i == v && r1 != 'resposta1' && r2 != 'resposta1' && r3 != 'resposta1'" color="secondary"  checked="false" (ionChange)="Change('resposta1', i)"></ion-checkbox>
+                  </ion-item>
+                  <ion-item class="bordel" color="judas">
+                      <ion-label>{{item.resposta2}}</ion-label>
+                      <ion-checkbox [disabled]=" x1 == '3' && i == v && r1 != 'resposta2' && r2 != 'resposta2' && r3 != 'resposta2'" color="secondary" checked="false" (ionChange)="Change('resposta2',i)"></ion-checkbox>
+                    </ion-item>
+                    <ion-item class="bordel" color="judas">
+                        <ion-label>{{item.resposta3}}</ion-label>
+                        <ion-checkbox [disabled]=" x1 == '3' && i == v && r1 != 'resposta3' && r2 != 'resposta3' && r3 != 'resposta3'"  color="secondary" checked="false" (ionChange)="Change('resposta3', i)"></ion-checkbox>
+                      </ion-item>
+                      <ion-item  class="bordel" color="judas">
+                          <ion-label>{{item.resposta4}}</ion-label>
+                          <ion-checkbox [disabled]=" x1 == '3' && i == v && r1 != 'resposta4' && r2 != 'resposta4' && r3 != 'resposta4'"  color="secondary" checked="false" (ionChange)="Change('resposta4', i)"></ion-checkbox>
+                        </ion-item>
+                        <ion-item  class="bordel" color="judas">
+                            <ion-label>{{item.resposta5}}</ion-label>
+                            <ion-checkbox [disabled]=" x1 == '3' && i == v && r1 != 'resposta5' && r2 != 'resposta5' && r3 != 'resposta5'"  color="secondary" checked="false" (ionChange)="Change('resposta5', i)"></ion-checkbox>
+                          </ion-item>
+                          <ion-item *ngIf="item.resposta6 != null" class="bordel" color="judas">
+                              <ion-label>{{item.resposta6}}</ion-label>
+                              <ion-checkbox [disabled]=" x1 == '3' && i == v && r1 != 'resposta6' && r2 != 'resposta6' && r3 != 'resposta6'"  color="secondary" checked="false" (ionChange)="Change('resposta6', i)"></ion-checkbox>
+                            </ion-item>
+                            <ion-item *ngIf="item.resposta7 != null"  class="bordel" color="judas">
+                                <ion-label>{{item.resposta7}}</ion-label>
+                                <ion-checkbox [disabled]=" x1 == '3' && i == v && r1 != 'resposta7' && r2 != 'resposta7' && r3 != 'resposta7'" color="secondary" checked="false" (ionChange)="Change('resposta7', i)"></ion-checkbox>
+                              </ion-item>
+                              <ion-item *ngIf="item.resposta8 != null"  class="bordel" color="judas">
+                                  <ion-label>{{item.resposta8}}</ion-label>
+                                  <ion-checkbox [disabled]=" x1 == '3' && i == v && r1 != 'resposta8' && r2 != 'resposta8' && r3 != 'resposta8'" color="secondary" checked="false" (ionChange)="Change('resposta8', i)"></ion-checkbox>
+                                </ion-item>
+                                <ion-item *ngIf="item.resposta9 != null"  class="bordel" color="judas">
+                                    <ion-label>{{item.resposta9}}</ion-label>
+                                    <ion-checkbox [disabled]=" x1 == '3' && i == v && r1 != 'resposta9' && r2 != 'resposta9' && r3 != 'resposta9'" color="secondary" checked="false" (ionChange)="Change('resposta9', i)"></ion-checkbox>
+                                  </ion-item>
+                                  <ion-item *ngIf="item.resposta10 != null"  class="bordel" color="judas">
+                                      <ion-label>{{item.resposta10}}</ion-label>
+                                      <ion-checkbox [disabled]=" x1 == '3' && i == v && r1 != 'resposta10' && r2 != 'resposta10' && r3 != 'resposta10'" color="secondary" checked="false" (ionChange)="Change('resposta10', i)"></ion-checkbox>
+                                    </ion-item>
+            </ion-list>
+
+            <ion-grid>
+              <ion-row margin-top text-center >
+                  <ion-col  col-2>
+                      <ion-icon color="secondary"(click)="presentAlert()" class="help"  md="md-help"></ion-icon>
+                    </ion-col>
+                    <ion-col  col-8 >
+                        <button color="secondary" [disabled]="item.cardR == 'checkbox' && r1 ==nul ||
+                        item.cardR == 'checkbox' && r2 ==nul || item.cardR == 'checkbox' && r3 ==nul" outline small ion-button >APOSTAR</button>
+                    </ion-col>
+
+                    <ion-col col-2 *ngIf="item.cardR != 'valor'"  >
+                        <ion-icon color="secondary"  style="font-size: 20px;" md="md-trophy"></ion-icon>
+                        <p style="color: ivory;" >{{item.vFixo}}</p>
+                        
+                    </ion-col>
+                    <ion-col col-2 *ngIf="item.cardR == 'valor'" >
+                      <ion-icon color="light"  style="font-size: 20px;" md="md-eye"></ion-icon>
+                      <p style="color: ivory;" >999</p>
+                  </ion-col>
+              </ion-row>
+            </ion-grid>
+              
+          </form>
+      </ion-card-content>
+    </ion-card> 
+    <h1 *ngIf="apostas == ''"  style="color:#fff" >SEM APOSTAS NO MOMENTO!</h1>
+</ion-content>

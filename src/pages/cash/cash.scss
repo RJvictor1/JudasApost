@@ -1,0 +1,112 @@
+page-cash {
+    .card-background-page {
+
+        ion-card {
+          position: relative;
+          text-align: center;
+        }
+      
+        .card-title {
+          position: absolute;
+          top: 36%;
+          font-size: 2.0em;
+          width: 100%;
+          font-weight: bold;
+          color: rgb(255, 255, 255);
+          text-shadow:
+          0px 0px 15px rgb(0, 2, 0),
+          0px 0px 15px rgb(1, 37, 13);
+        }
+      
+      }
+
+      .bg-image{
+        background-image: url('../assets/imgs/fundojudas.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+    }
+
+    ion-toolbar{
+      box-shadow:
+  0px 0px 18px rgb(0, 255, 136);
+   border-style: solid;
+  border-width: 0px 0px 1px ;
+  border-color: #fff; 
+  animation-name: example;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  }
+
+  @keyframes example {
+    from {box-shadow:
+      0px 0px 18px rgb(0, 255, 136);
+      border-width: 0px 0px 1px ;}
+    to {box-shadow:
+      0px 0px 0px rgba(255, 0, 0, 0);
+      border-width: 0px 0px 0px ;}
+
+  }
+
+  @keyframes valor {
+    from {text-shadow:
+      0px 0px 30px rgb(183, 232, 255),
+      0px 0px 30px rgb(183, 232, 255)
+      ;}
+    to {text-shadow:
+      0px 0px 0px rgb(183, 232, 255),
+      0px 0px 0px rgb(183, 232, 255)
+      ;}
+
+  }
+
+  @keyframes marquinho {
+    0%   {text-shadow:
+      0px 0px 18px rgb(0, 255, 136);}
+  35%  {text-shadow:
+    0px 0px 0px rgb(0, 255, 136);}
+  60%  {text-shadow:
+    0px 0px 18px rgb(88, 239, 250);}
+  100% {text-shadow:
+    0px 0px 0px rgb(88, 239, 250);}
+
+  }
+
+    marquee{
+
+      color: #fff;
+      text-shadow:
+      0px 0px 18px rgb(0, 255, 136);
+      animation-name: marquinho;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+    }
+
+
+  .altura{
+    height: 15px;
+    padding-bottom: 1px;
+
+    text-shadow:
+           0px 0px 10px rgb(183, 232, 255),
+           0px 0px 10px rgb(183, 232, 255)
+           ;
+           animation-name: valor;
+           animation-duration: 2s;
+           animation-iteration-count: infinite; 
+}
+.largo{
+  width: 15%;
+  
+}
+
+    .contorno{
+      box-shadow:
+    0px 0px 10px rgb(0, 255, 136),
+    0px 0px 10px rgb(74, 0, 247);
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px ;
+    border-color: #fff; 
+    }
+}

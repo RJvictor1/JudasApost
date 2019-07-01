@@ -1,0 +1,145 @@
+page-resposta {
+    .bg-image{
+        background-image: url('../assets/imgs/fundojudas.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+    }
+    //imagem teste
+    .card-background-page {
+
+      ion-card {
+        position: relative;
+        text-align: center;
+        width: 100%;
+      }
+      .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 75%;
+        width: 100%;
+        color: #fff;
+      }
+    
+      .card-title {
+        position: absolute;
+        top: 10%;
+        font-size: 1.50em;
+        width: 100%;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+        text-shadow:
+        0px 0px 15px rgb(0, 2, 0),
+        0px 0px 15px rgb(1, 37, 13);
+      }
+    
+    }
+
+    .cardluz{
+        border-radius: 10px;
+      }
+
+      .section {
+        background: color($colors, judas);
+          color: #fff;
+          h2{
+            color: #fff;
+            margin: 10px 0px;
+          }
+          height: 100%;
+          ion-avatar{
+            box-shadow:
+                  0px 0px 18px rgb(0, 255, 136);
+            border-radius: 20px;
+          }
+      }
+      .section-active{
+        background: color($colors, judas1);
+        color: #fff;
+        h2{
+          color: #fff;
+          margin: 10px 0px;
+        }
+        ion-avatar{
+          box-shadow:
+                0px 0px 18px rgb(0, 217, 255);
+          border-radius: 20px;
+        }
+      }
+      .bordel{
+
+        border-style: solid;
+        border-width: 0px 0px 1px ;
+        border-color: #fff; 
+        margin-bottom: 1px;
+      }
+      .bordel:hover{
+        border-color: rgb(30, 255, 136); 
+      }
+      .help{
+        font-size: 30px;
+        animation-name: helpp;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+
+      }
+      @keyframes helpp {
+        from {text-shadow:
+          0px 0px 18px rgb(0, 255, 136);
+          }
+        to {text-shadow:
+          0px 0px 0px rgba(255, 0, 0, 0);
+          }
+    
+      }
+
+      ion-toolbar{
+        box-shadow:
+    0px 0px 18px rgb(0, 255, 136);
+     border-style: solid;
+    border-width: 0px 0px 1px ;
+    border-color: #fff; 
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    }
+  
+    @keyframes example {
+      from {box-shadow:
+        0px 0px 18px rgb(0, 255, 136);
+        border-width: 0px 0px 1px ;}
+      to {box-shadow:
+        0px 0px 0px rgba(255, 0, 0, 0);
+        border-width: 0px 0px 0px ;}
+  
+    }
+
+    .altura{
+      height: 15px;
+      padding-bottom: 1px;
+  
+      text-shadow:
+             0px 0px 10px rgb(183, 232, 255),
+             0px 0px 10px rgb(183, 232, 255)
+             ;
+             animation-name: valor;
+             animation-duration: 2s;
+             animation-iteration-count: infinite; 
+  }
+  .largo{
+    width: 15%;
+    
+  }
+
+  @keyframes valor {
+    from {text-shadow:
+      0px 0px 30px rgb(183, 232, 255),
+      0px 0px 30px rgb(183, 232, 255)
+      ;}
+    to {text-shadow:
+      0px 0px 0px rgb(183, 232, 255),
+      0px 0px 0px rgb(183, 232, 255)
+      ;}
+
+  }
+}

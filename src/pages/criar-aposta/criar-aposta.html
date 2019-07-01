@@ -1,0 +1,58 @@
+<!--
+  Generated template for the CriarApostaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+   <ion-navbar color="judas" >
+      <ion-buttons (click)="voltar()" left>
+          <button ion-button icon-only>
+              <ion-icon name="arrow-dropleft-circle"></ion-icon>
+          </button>
+        </ion-buttons>
+    
+        <ion-title >Criar Aposta</ion-title>
+   </ion-navbar>
+  </ion-header>
+  
+
+
+<ion-content class="bg-image" padding>
+  <ion-card class="bordel" color="judas1" >
+    <form text-center [formGroup]="formGroup" (ngSubmit)="add()">
+      <ion-card-header>
+        <ion-input class="teste" text-center  disabled="true" *ngFor="let p of usuario"  value="{{p.nome}}"  formControlName="nome"></ion-input>
+        <ion-input type="text"  formControlName="descricaoAposta" placeholder="descrição" ></ion-input>
+        <p *ngIf="formGroup.controls.descricaoAposta.errors && formGroup.controls.descricaoAposta.dirty">minimo 4 caracterios</p>
+      </ion-card-header>
+      <ion-card-content>
+          <ion-item color="judas1" >
+              <ion-label *ngIf="pepperoni == true" >Desabilitar 3 resposta ?</ion-label>
+              <ion-label *ngIf="pepperoni == false" >Habilitar 3 resposta ?</ion-label>
+              <ion-toggle checked="true" (ionChange)="Change()" color="secondary" ></ion-toggle>
+          </ion-item>
+        <ion-input type="text" margin-top formControlName="resposta1" [(ngModel)]="resposta1" placeholder="resposta1" ></ion-input>
+        <ion-input type="text" formControlName="resposta2" [(ngModel)]="resposta2" placeholder="resposta2" ></ion-input>
+        <ion-input *ngIf="pepperoni == true" type="text" formControlName="resposta3" [(ngModel)]="resposta3" placeholder="resposta3" ></ion-input>
+        <ion-item color="judas">
+          <ion-label >Resposta correta</ion-label>
+          <ion-select formControlName="respostaCorreta" >
+            <ion-option value="resposta1">{{resposta1}}</ion-option>
+            <ion-option value="resposta2">{{resposta2}}</ion-option>
+            <ion-option *ngIf="pepperoni == true" value="resposta3">{{resposta3}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item margin-top color="judas">
+          <ion-label>Tempo termino</ion-label>
+          <ion-datetime formControlName="dataTermino" cancelText=Cancelar    doneText=Confirmar min="{{myDate}}" displayFormat=" DD-MMM H:mm " [(ngModel)]="myDate"></ion-datetime>
+        </ion-item>
+      </ion-card-content>
+      <button *ngIf="pepperoni == true"  margin color="light" [disabled]="formGroup.invalid" outline ion-button>Criar aposta  (10 pratas) </button>
+      <button *ngIf="pepperoni == false"  margin color="light" [disabled]="formGroup.controls.descricaoAposta.invalid ||
+       formGroup.controls.resposta1.invalid || formGroup.controls.resposta2.invalid ||
+        formGroup.controls.respostaCorreta.invalid ||
+        formGroup.controls.dataTermino.invalid " outline ion-button>Criar aposta  (10 pratas) </button>
+    </form>
+  </ion-card>
+</ion-content>

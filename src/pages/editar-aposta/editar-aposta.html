@@ -1,0 +1,185 @@
+<!--
+  Generated template for the EditarApostaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="judas">
+    <ion-title>Editar aposta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg-image">
+  <ion-card *ngIf="t==true" text-center class="bordel" color="judas1" >
+    <h1 margin >Escolha o tipo de Card</h1>
+      <ion-row >
+        <ion-col col-12>
+            <img  src="assets/imgs/{{card}}.png">
+            <ion-item color="judas1">
+                <ion-label>titulo</ion-label>
+                <ion-select  [(ngModel)]="card" >
+                  <ion-option  value="simples" >simples</ion-option>
+                  <ion-option  value="2imagem" >2 imagens</ion-option>
+                  <ion-option value="banner" >banner</ion-option>
+                  <ion-option value="Sbanner" >simples + banner</ion-option>
+                  <ion-option value="2banner" >2 imagens + banner</ion-option>
+                </ion-select>
+              </ion-item>
+        </ion-col>
+        <ion-col col-12>
+          <img src="assets/imgs/{{respost}}2.png"></ion-col>
+          <ion-item color="judas1">
+              <ion-label>resposta</ion-label>
+              <ion-select [(ngModel)]="respost" >
+                <ion-option  value="simples" >simples</ion-option>
+                <ion-option  value="valor" >valor</ion-option>
+                <ion-option value="checkbox" >checkbox</ion-option>
+              </ion-select>
+            </ion-item>
+      </ion-row> 
+    <button   margin color="light"  (click)="stilozo()"  outline ion-button>Concluir</button>
+  </ion-card>
+   
+  <ion-card *ngIf="t==false"  class="bordel" color="judas1" >
+      <form text-center  [formGroup]="formGroup" (ngSubmit)="atualizar()">
+        <!--aki-->
+        <ion-card-header>
+          <button ion-button full color="light"  outline (click)="stilozo()" >editar card </button>
+
+          <ion-input class="teste" text-center  disabled="true"  *ngFor="let p of usuario"  value="{{p.nome}}" formControlName="nome" ></ion-input>
+
+          
+             
+
+          <ion-item  margin-bottom color="judas">
+            <ion-label >categoria</ion-label>
+            <ion-select formControlName="categoria">
+          <ion-option *ngFor="let categorias of categoria"  value="{{categorias.categoria}}" > {{categorias.categoria}} </ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-input type="text" formControlName="descricaoAposta"  placeholder="descrição" ></ion-input>
+        </ion-card-header>
+
+<ion-list no-lines  *ngIf="card != 'banner'" >
+    <p>coloque URL da imagem a baixo</p>
+      <ion-item  color="judas1" >
+  <ion-avatar item-start>
+      <img src="{{imgCard}}">
+    </ion-avatar>
+    <ion-input  item-end type="text" [(ngModel)]="imgCard" formControlName="imagem1"  ></ion-input>
+      </ion-item>
+</ion-list>
+<ion-list margin-top *ngIf="card == '2imagem' || card == '2banner'" no-lines >
+    <p>coloque URL da imagem a baixo</p>
+    <ion-item *ngIf="card == '2imagem' || card == '2banner'" color="judas1" >
+<ion-avatar item-start>
+    <img src="{{imgCard2}}">
+  </ion-avatar>
+  <ion-input  item-end type="text" [(ngModel)]="imgCard2" formControlName="imagem2" ></ion-input>
+    </ion-item>
+</ion-list>
+
+
+   
+      <div *ngIf="card != 'simples' && card != '2imagem'" padding>
+        <p>BANNER (coloque URL da imagem a baixo)</p>
+          <ion-input type="text" formControlName="imagem3"  placeholder="imagens recomendadas 500x100" ></ion-input>
+      </div>
+
+
+      <ion-item color="judas1" margin-vertical>
+        <ion-label>Quantidade de resposta?</ion-label>
+        <ion-select [(ngModel)]="teste" [ngModelOptions]="{standalone: true}" interface="popover">
+          <ion-option *ngIf="respost!='checkbox'" value="2">2</ion-option>
+          <ion-option *ngIf="respost!='checkbox'" value="3">3</ion-option>
+          <ion-option *ngIf="respost!='checkbox'" value="4">4</ion-option>
+          <ion-option  value="5">5</ion-option>
+          <ion-option *ngIf="respost=='checkbox' " value="6">6</ion-option>
+          <ion-option *ngIf="respost=='checkbox'" value="7">7</ion-option>
+          <ion-option *ngIf="respost=='checkbox'" value="8">8</ion-option>
+          <ion-option *ngIf="respost=='checkbox'" value="9">9</ion-option>
+          <ion-option *ngIf="respost=='checkbox'" value="10">10</ion-option>
+        </ion-select>
+      </ion-item>
+        
+        <ion-card-content>
+          <ion-row>
+            <ion-col >
+          <ion-input type="text" formControlName="resposta1" [(ngModel)]="resposta1"  placeholder="resposta1" ></ion-input>
+          <ion-input type="text"  formControlName="resposta2" [(ngModel)]="resposta2"  placeholder="resposta2" ></ion-input>
+          <ion-input  type="text" *ngIf="teste == '3' || teste == '4' || teste == '5' || teste == '6' || teste == '7' || teste == '8' || teste == '9' || teste == '10'  " formControlName="resposta3" [(ngModel)]="resposta3"  placeholder="resposta3" ></ion-input>
+          <ion-input type="text" *ngIf=" teste == '4' || teste == '5' || teste == '6' || teste == '7' || teste == '8' || teste == '9' || teste == '10' " formControlName="resposta4" [(ngModel)]="resposta4"  placeholder="resposta4" ></ion-input>
+          <ion-input  type="text" *ngIf=" teste == '5' || teste == '6' || teste == '7' || teste == '8' || teste == '9' || teste == '10' " formControlName="resposta5" [(ngModel)]="resposta5"  placeholder="resposta5" ></ion-input>
+          <ion-input type="text" *ngIf=" teste == '6' || teste == '7' || teste == '8' || teste == '9' || teste == '10' "  formControlName="resposta6" [(ngModel)]="resposta6"  placeholder="resposta6" ></ion-input>
+          <ion-input *ngIf=" teste == '7' || teste == '8' || teste == '9' || teste == '10' " type="text" formControlName="resposta7" [(ngModel)]="resposta7"  placeholder="resposta7" ></ion-input>
+          <ion-input *ngIf="teste == '8' || teste == '9' || teste == '10' " type="text" formControlName="resposta8" [(ngModel)]="resposta8"  placeholder="resposta8" ></ion-input>
+          <ion-input *ngIf=" teste == '9' || teste == '10' " type="text" formControlName="resposta9" [(ngModel)]="resposta9"  placeholder="resposta9" ></ion-input>
+          <ion-input *ngIf="teste == '10' " type="text" formControlName="resposta10" [(ngModel)]="resposta10"  placeholder="resposta10" ></ion-input>
+            </ion-col>
+            <ion-col *ngIf="respost == 'valor'" col-2 >
+                <ion-input  placeholder="VL"  formControlName="v1" type="number"></ion-input>
+                <ion-input  formControlName="v2" type="number"></ion-input>
+                <ion-input *ngIf="teste == '3' || teste == '4' || teste == '5'" formControlName="v3" type="number"></ion-input>
+                <ion-input *ngIf=" teste == '4' || teste == '5'" formControlName="v4" type="number"></ion-input>
+                <ion-input *ngIf=" teste == '5'" formControlName="v5" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+
+          
+      <ion-row *ngIf="respost != 'valor'" align-items-center >
+          <ion-col col-2></ion-col>
+          <ion-col>
+            <div><h2>Valor fixo da aposta</h2></div>
+          </ion-col>
+          <ion-col col-2>
+            <div>
+              <ion-input formControlName="vFixo" type="number">VL</ion-input>
+            </div>
+          </ion-col>
+          <ion-col col-2 > </ion-col>
+        </ion-row>
+                 
+
+          <ion-item margin-top color="judas">
+            <ion-label>Tempo termino</ion-label>
+            <ion-datetime formControlName="dataTermino" cancelText=Cancelar    doneText=Confirmar min="{{myDate}}" displayFormat=" DD-MM-YYYY H:mm " [(ngModel)]="myDate"></ion-datetime>
+          </ion-item>
+        </ion-card-content>
+        <button *ngIf="card == 'simples' && respost == 'simples' || card == '2imagem' && respost == 'simples' "   margin color="light"
+        [disabled]="formGroup.controls.descricaoAposta.invalid || formGroup.controls.resposta1.invalid || formGroup.controls.resposta2.invalid
+         || formGroup.controls.categoria.invalid  || formGroup.controls.vFixo.invalid"
+        outline ion-button>Criar aposta simples</button>
+
+        <button  *ngIf="card != 'simples' && card != '2imagem' && respost == 'simples' "  margin color="light"
+        [disabled]="formGroup.controls.descricaoAposta.invalid || formGroup.controls.resposta1.invalid || formGroup.controls.resposta2.invalid
+        || formGroup.controls.dataTermino.invalid ||  formGroup.controls.imagem3.invalid || formGroup.controls.categoria.invalid  || formGroup.controls.vFixo.invalid "
+        outline ion-button>Criar aposta simples/BANNER</button>
+
+        <button  *ngIf="card == 'simples' && respost == 'valor' || card == '2imagem' && respost == 'valor' "   margin color="light"
+        [disabled]="formGroup.controls.descricaoAposta.invalid || formGroup.controls.resposta1.invalid || formGroup.controls.resposta2.invalid
+      || formGroup.controls.v1.invalid ||  formGroup.controls.v2.invalid || formGroup.controls.categoria.invalid"
+        outline ion-button>Criar aposta simples/VALOR</button>
+
+        <button *ngIf="card != 'simples' && card != '2imagem' && respost == 'valor' "   margin color="light"
+        [disabled]="formGroup.controls.descricaoAposta.invalid || formGroup.controls.resposta1.invalid || formGroup.controls.resposta2.invalid ||
+        formGroup.controls.v1.invalid ||  formGroup.controls.v2.invalid || formGroup.controls.imagem3.invalid || formGroup.controls.categoria.invalid "
+        outline ion-button>Criar aposta baner/VALOR</button>
+
+        <button *ngIf="card == 'simples' && respost == 'checkbox' || card == '2imagem' && respost == 'checkbox' "   margin color="light"
+        [disabled]="formGroup.controls.descricaoAposta.invalid || formGroup.controls.resposta1.invalid || formGroup.controls.resposta2.invalid || formGroup.controls.resposta3.invalid ||
+        formGroup.controls.resposta4.invalid || formGroup.controls.resposta5.invalid || formGroup.controls.categoria.invalid  || formGroup.controls.vFixo.invalid"
+        outline ion-button>Criar aposta check1</button>
+
+        <button *ngIf="card != 'simples' && card != '2imagem' && respost == 'checkbox' "   margin color="light"
+        [disabled]="formGroup.controls.descricaoAposta.invalid || formGroup.controls.resposta1.invalid || formGroup.controls.resposta2.invalid || formGroup.controls.resposta3.invalid ||
+        formGroup.controls.resposta4.invalid || formGroup.controls.resposta5.invalid || formGroup.controls.imagem3.invalid || formGroup.controls.categoria.invalid  || formGroup.controls.vFixo.invalid"
+        outline ion-button>Criar aposta check2</button>
+      </form>
+    </ion-card>
+   
+</ion-content>

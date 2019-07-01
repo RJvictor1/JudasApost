@@ -1,0 +1,38 @@
+page-loja {
+    .bg-image{
+        background-image: url('../assets/imgs/fundojudas.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+    }
+
+    .contorno{
+        box-shadow:
+      0px 0px 10px rgb(0, 255, 136),
+      0px 0px 10px rgb(74, 0, 247);
+      border-radius: 60px;
+      border-style: solid;
+      border-width: 1px ;
+      border-color: #fff; 
+      }
+      ion-navbar{
+        box-shadow:
+    0px 0px 18px rgb(0, 255, 136);
+     border-style: solid;
+    border-width: 0px 0px 1px ;
+    border-color: #fff; 
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    }
+  
+    @keyframes example {
+      from {box-shadow:
+        0px 0px 18px rgb(0, 255, 136);
+        border-width: 0px 0px 1px ;}
+      to {box-shadow:
+        0px 0px 0px rgba(255, 0, 0, 0);
+        border-width: 0px 0px 0px ;}
+  
+    }
+}

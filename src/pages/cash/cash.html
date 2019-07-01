@@ -1,0 +1,41 @@
+
+<ion-header>
+  <ion-toolbar  color="judas">
+
+    <ion-buttons class="largo" ion-button   start>
+     
+        <ion-row>
+          <ion-col color="judas" ion-button >
+             <img width="30px"  src="assets/imgs/money64.png" alt="">
+          </ion-col>
+          <ion-col  color="judas"  class="altura" col-12  ion-button>
+              <p *ngFor="let saldo of usuario" >{{saldo.saldo}}</p>
+          </ion-col>
+        </ion-row>
+
+    </ion-buttons>
+   <marquee><h2>EU GOSTO DE MOEDA , EU GOSTO DE DINHEIRO!</h2></marquee>
+    <button ion-button menuToggle>
+        <ion-icon  name="menu"></ion-icon>
+      </button>
+  </ion-toolbar>
+</ion-header>
+   
+    <ion-content  class="card-background-page bg-image">
+        <ion-fab *ngFor="let aa of usuario" right middle>
+            <button *ngIf="aa.admin == 'true'"  ion-fab (click)="criar()" color="secondary"><ion-icon name="add"></ion-icon></button>
+          </ion-fab>
+      <ion-row>
+        <ion-col *ngFor="let categorias of categoria" col-6 no-padding>
+
+          <ion-card (click)="detalhar(categorias)" class="contorno">
+            <img src="{{categorias.foto}}"/>
+            <div class="card-title">{{categorias.categoria}}</div>
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+
+      </ion-content>
+
+

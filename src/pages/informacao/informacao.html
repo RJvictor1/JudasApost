@@ -1,0 +1,76 @@
+<ion-header>
+
+  <ion-navbar color="judas">
+    <ion-title>Seus Dados</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content  style="background:#111424;" padding >
+
+   <form text-center [formGroup]="formGroup"  (ngSubmit)="pegarUsuario()">
+     <h1 style="color: #fff">Você precisa atualizar seus dados antes de proceguir.</h1>
+      <ion-list>
+          <ion-item color="judas1">
+              <ion-label floating>Nome</ion-label>
+              <ion-input  formControlName="nome" type="text"></ion-input>
+            </ion-item>
+    </ion-list>
+     <ion-list>
+            <ion-item  color="judas1">
+                <ion-label floating>CPF</ion-label>
+                <ion-input formControlName="cpf" type="text"></ion-input>
+              </ion-item>
+      </ion-list>
+            <ion-list>
+               <ion-item  color="judas1">
+                  <ion-label floating>Telefone</ion-label>
+                  <ion-input formControlName="telefone"  type="text"></ion-input>
+                </ion-item>
+              </ion-list>
+                <ion-list>
+              <ion-item  color="judas1">
+                <ion-label floating>RG</ion-label>
+                <ion-input formControlName="rg" type="text"></ion-input>
+              </ion-item>
+            </ion-list>
+            <ion-list>
+                    <ion-item  color="judas1">
+                        <ion-label floating> CEP</ion-label>
+                        <ion-input formControlName="cep" type="text"></ion-input>
+                      </ion-item>
+               </ion-list>         
+            <ion-list>       
+          <ion-item  color="judas1">
+            <ion-label floating>Logradouro</ion-label>
+            <ion-input formControlName="logradouro" type="text"></ion-input>
+          </ion-item>
+            </ion-list>
+            <ion-list>
+          <ion-item  color="judas1">
+            <ion-label floating>Bairro</ion-label>
+            <ion-input formControlName="bairro" type="text"></ion-input>
+          </ion-item>
+            </ion-list>
+
+            <ion-list>
+          <ion-row >
+            <ion-col>
+              <ion-item  color="judas1">
+                <ion-label floating>Localidade</ion-label>
+                <ion-input formControlName="localidade" type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item  color="judas1">
+                <ion-label floating>UF</ion-label>
+                <ion-input formControlName="uf" type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+         <button  ion-button full large [disabled]="formGroup.invalid" color="secondary">Atualizar</button>
+      </form>
+
+    </ion-content>

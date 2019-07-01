@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar text-center color="judas">
+    <button ion-button menuToggle>
+      <ion-icon  name="menu"></ion-icon>
+    </button>
+    <ion-title >LOJA</ion-title>
+    <ion-buttons end>
+      <button  disabled ion-button icon-only>
+        <ion-icon name=""></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="bg-image" padding>
+
+  <ion-card  *ngFor="let p of promocao" (click)="informacao(p)" text-center class="contorno" color="judas" >
+    <ion-item color="judas"  text-center >
+      <h1>{{p.titulo}}</h1>
+    </ion-item>
+    <img  src="{{p.imagem}}">
+    <ion-card-content>
+      <p>{{p.descricao}}</p>
+    </ion-card-content>
+    <button ion-button color="secondary" full >R$ {{p.saldo}}</button>
+  </ion-card>
+  
+</ion-content>
